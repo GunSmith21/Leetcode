@@ -5,8 +5,8 @@ class Solution {
         int i = 0; // Pointer to place the next unique element
         for (int j = 1; j < nums.length; j++) {
             if (nums[j] != nums[i]) {
-                i++;
-                nums[i] = nums[j]; // Place the next unique element
+                
+                nums[++i] = nums[j]; // Place the next unique element
             }
         }
         return i + 1; // The length of the array with unique elements
