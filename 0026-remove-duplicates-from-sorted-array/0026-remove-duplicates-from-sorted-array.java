@@ -1,14 +1,22 @@
+import java.util.ArrayList;
+
 class Solution {
     public int removeDuplicates(int[] nums) {
         if (nums.length == 0) return 0;
         
-        int i = 0; // pointer for the place to insert the next unique element
-        for (int j = 1; j < nums.length; j++) {
-            if (nums[j] != nums[i]) {
-                i++;
-                nums[i] = nums[j]; // place the next unique element
+        ArrayList<Integer> uniqueList = new ArrayList<>();
+        
+        for (int x : nums) {
+            if (!uniqueList.contains(x)) {
+                uniqueList.add(x);
             }
         }
-        return i + 1; // length of the array with unique elements
+        
+        // Modify the input array in place to reflect unique elements
+        for (int i = 0; i < uniqueList.size(); i++) {
+            nums[i] = uniqueList.get(i);
+        }
+        
+        return uniqueList.size();
     }
 }
